@@ -1,18 +1,37 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+storage/resumes/
 
 # Python
 .venv/
+venv/
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
-# Secrets
-.env
-**/.env
-
-# Node.js
+# Node
 node_modules/
 dist/
+coverage/
+npm-debug.log*
 
-# Editor and OS
+# Local databases and temporary files
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.tmp
+*.temp
+.coverage
+htmlcov/
+
+# Local tooling
 .vscode/
+.idea/
 .DS_Store
 Thumbs.db

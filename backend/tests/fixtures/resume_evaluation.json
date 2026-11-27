@@ -1,0 +1,104 @@
+[
+  {
+    "id": "synthetic-standard-backend",
+    "text": "SYNTHETIC DEMO RESUME\nAlex Morgan\nEmail: alex.morgan@example.test\nPhone: +1 (206) 555-0142\nExperience: 4 years\n\nTECHNICAL SKILLS: Python, FastAPI, PostgreSQL, Docker\n\nPROFESSIONAL EXPERIENCE\nBackend Engineer at Example Labs | 2021–2024\nBuilt APIs with Python and FastAPI.\n\nEDUCATION\nBachelor of Science in Computer Science\nUniversity of Washington | 2017–2021\n\nPROJECTS\nJob Board API\nBuilt with FastAPI and PostgreSQL.\n\nCERTIFICATIONS\nAWS Certified Developer",
+    "expected": {
+      "fields": {
+        "full_name": "Alex Morgan",
+        "email": "alex.morgan@example.test",
+        "phone": "+1 (206) 555-0142",
+        "total_experience_years": 4
+      },
+      "skills": ["Python", "FastAPI", "PostgreSQL", "Docker"],
+      "education": ["Bachelor of Science in Computer Science"],
+      "work_experience": ["Backend Engineer"],
+      "projects": ["Job Board API"],
+      "certifications": ["AWS Certified Developer"]
+    }
+  },
+  {
+    "id": "synthetic-alternate-headings-intern",
+    "text": "Taylor Lee | Platform Engineer\ntaylor.lee@example.test\nMobile: +44 20 7946 0958\n\nTECHNICAL TOOLKIT\nJava, Spring Boot, SQL\n\nCAREER HISTORY\nPlatform Engineering Intern — Demo Cloud | June 2023 - Present\nMaintained AWS services and SQL reports.\n\nACADEMIC BACKGROUND\nBSc in Computing\nDemo Institute | 2020–2023\n\nPERSONAL PROJECTS\nWeather Dashboard\nBuilt with React and JavaScript.\n\nLICENSES AND CERTIFICATIONS\nAWS Certified Developer — issued by Demo Cloud — 2024",
+    "expected": {
+      "fields": {
+        "full_name": "Taylor Lee",
+        "email": "taylor.lee@example.test",
+        "phone": "+44 20 7946 0958",
+        "total_experience_years": null
+      },
+      "skills": ["Java", "Spring Boot", "SQL"],
+      "education": ["BSc in Computing"],
+      "work_experience": ["Platform Engineering Intern"],
+      "projects": ["Weather Dashboard"],
+      "certifications": ["AWS Certified Developer — issued by Demo Cloud — 2024"]
+    }
+  },
+  {
+    "id": "synthetic-duplicate-skills-and-projects",
+    "text": "Email: projects@example.test\n\nTECHNICAL SKILLS\nNodeJS, Node.js, Postgres, PostgreSQL, Python\nPython\n\nPROJECTS\nProject: Weather API\nDescription: Built a small weather dashboard for local forecasts.\nTechnologies: React, FastAPI\nProject: Inventory Dashboard\nDescription: Tracks stock levels and produces weekly reports.\nTechnologies: TypeScript, SQLite",
+    "expected": {
+      "fields": {
+        "full_name": null,
+        "email": "projects@example.test",
+        "phone": null,
+        "total_experience_years": null
+      },
+      "skills": ["Node.js", "PostgreSQL", "Python"],
+      "education": [],
+      "work_experience": [],
+      "projects": ["Weather API", "Inventory Dashboard"],
+      "certifications": []
+    }
+  },
+  {
+    "id": "synthetic-missing-name-internship",
+    "text": "Contact Information\nemail: intern@example.test\n\nSkills\nPython\n\nInternship\nData Analyst Intern at Demo Lab | Jun 2024 - Aug 2024\nReviewed datasets using Python.",
+    "expected": {
+      "fields": {
+        "full_name": null,
+        "email": "intern@example.test",
+        "phone": null,
+        "total_experience_years": null
+      },
+      "skills": ["Python"],
+      "education": [],
+      "work_experience": ["Data Analyst Intern"],
+      "projects": [],
+      "certifications": []
+    }
+  },
+  {
+    "id": "synthetic-missing-sections",
+    "text": "Jordan Kim\nEmail: jordan.kim@example.test\n\nSkills\nPython; Communication",
+    "expected": {
+      "fields": {
+        "full_name": "Jordan Kim",
+        "email": "jordan.kim@example.test",
+        "phone": null,
+        "total_experience_years": null
+      },
+      "skills": ["Python", "Communication"],
+      "education": [],
+      "work_experience": [],
+      "projects": [],
+      "certifications": []
+    }
+  },
+  {
+    "id": "synthetic-ambiguous-name",
+    "text": "SYNTHETIC RESUME\nAlex Morgan\nTaylor Lee\nalex@example.test\n\nSKILLS: Python",
+    "expected": {
+      "fields": {
+        "full_name": null,
+        "email": "alex@example.test",
+        "phone": null,
+        "total_experience_years": null
+      },
+      "skills": ["Python"],
+      "education": [],
+      "work_experience": [],
+      "projects": [],
+      "certifications": []
+    }
+  }
+]

@@ -1,23 +1,42 @@
+import { useState } from 'react'
+import Layout from './components/Layout/Layout.jsx'
+import Chat from './pages/Chat.jsx'
+import Picks from './pages/Picks.jsx'
+import Resumes from './pages/Resumes.jsx'
+import Tracker from './pages/Tracker.jsx'
+import YourSearch from './pages/YourSearch.jsx'
+import JobDetails from './pages/JobDetails.jsx'
+
 export default function App() {
+  const [activePage, setActivePage] = useState('chat')
+  const [selectedJobId, setSelectedJobId] = useState(null)
+
+  function navigate(page) {
+    setActivePage(page)
+    if (page !== 'job-detail') setSelectedJobId(null)
+  }
+
+  function openJob(jobId) {
+    setSelectedJobId(jobId)
+    setActivePage('job-detail')
+  }
+
+  let page
+  if (activePage === 'job-detail' && selectedJobId) {
+    page = <JobDetails jobId={selectedJobId} onOpenJob={openJob} onNavigate={navigate} />
+  } else if (activePage === 'picks') {
+    page = <Picks onNavigate={navigate} onOpenJob={openJob} />
+  } else if (activePage === 'tracker') {
+    page = <Tracker />
+  } else if (activePage === 'resumes') {
+    page = <Resumes />
+  } else if (activePage === 'search') {
+    page = <YourSearch />
+  } else {
+    page = <Chat onNavigate={navigate} />
+  }
+
   return (
-    <main className="min-h-screen bg-slate-100 p-10">
-      <section className="mx-auto max-w-3xl rounded-2xl bg-white p-8 shadow-sm">
-        <p className="text-sm font-semibold text-indigo-600">
-          HACKCELLENCE STARTER
-        </p>
-
-        <h1 className="mt-3 text-3xl font-bold text-slate-900">
-          Ready to build.
-        </h1>
-
-        <p className="mt-3 text-slate-600">
-          A reusable foundation for tomorrow's challenge.
-        </p>
-
-        <button className="mt-6 rounded-lg bg-indigo-600 px-5 py-3 font-medium text-white hover:bg-indigo-700">
-          Get started
-        </button>
-      </section>
-    </main>
+    <Layout activePage={activePage} onNavigate={navigate}>{page}</Layout>
   )
 }
